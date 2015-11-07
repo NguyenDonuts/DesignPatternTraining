@@ -6,13 +6,12 @@ static class CardType {
 	public const int DIAMOND = 3;
 	public const int CLUB = 2;
 	public const int SPADE = 1;
-	public const int JOKER = 5;
 }
 
 public class Card : MonoBehaviour, ICard {
 
-	protected int card_number = 0;
-	protected int card_type = 0;
+	private int card_number = 0;
+	private int card_type = 0;
 
 	public void initCard(int card_number, int card_type) {
 		this.card_number = card_number;
