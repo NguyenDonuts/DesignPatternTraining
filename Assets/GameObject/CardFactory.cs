@@ -17,10 +17,15 @@ public class CardFactory {
 
 	public GameObject getNewCard() {
 		System.Random rnd = new System.Random();
-		int card_number = rnd.Next (1, 14);
-		int card_type = rnd.Next (CardType.SPADE,CardType.HEART + 1);
+		int card_number = rnd.Next (1, 15);
+		int card_type = rnd.Next (CardType.SPADE,CardType.JOKER + 1);
 		GameObject new_card = new GameObject ();
-		new_card.AddComponent<Card> ().initCard (card_number,card_type);
+		if(card_type == CardType.JOKER){
+			new_card.AddComponent<CardJoker> ().initCard (card_number,card_type);
+		}else{
+			new_card.AddComponent<Card> ().initCard (card_number,card_type);
+		}
+		
 		return new_card;
 	}
 }
