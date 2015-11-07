@@ -2,18 +2,19 @@
 using System.Collections;
 
 public class GameLogic {
-
+	// class instance, must static for static getInstance
 	private static GameLogic instance;
-	
-	private GameLogic() {}
-	
-	public static GameLogic Instance {
+
+	// avoid traditional new instance
+	private GameLogic (){}
+
+	public static GameLogic Instance{
 		get {
-			if (instance == null) {
+			if(instance == null){
 				instance = new GameLogic();
-				Debug.Log ("New GameLogic created");
-			}else {
-				Debug.Log ("Use existing GameLogic");
+				Debug.Log("new gamelogic created");
+			} else {
+				Debug.Log("gamelogic has been existing");
 			}
 			return instance;
 		}

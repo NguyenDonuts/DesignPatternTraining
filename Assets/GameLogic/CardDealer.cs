@@ -18,14 +18,22 @@ public class CardDealer {
 	}
 
 	public void dealCard() {
-		GameObject card_1 = CardFactory.Instance.getNewCard ();
-		GameObject card_2 = CardFactory.Instance.getNewCard ();
-		GameObject card_3 = CardFactory.Instance.getNewCard ();
+		GameObject[] card = new GameObject[3];
+		for (int i = 0; i < 3; i++) {
+			card[i] = CardFactory.Instance.getNewCard ();
+			Card c = card[i].GetComponent<Card> ();
+			if (c.GetType () == typeof(Joker)) {
+				Joker j = (Joker)c;
+				j.changeStatus(10, CardType.HEART);
+			}
+		}
+
 		GameObject game_view = GameObject.FindGameObjectWithTag (ObjectTag.GAME_VIEW);
 		Transform game_view_transform = game_view.transform;
-		card_1.transform.SetParent (game_view_transform);
-		card_2.transform.SetParent (game_view_transform);
-		card_3.transform.SetParent (game_view_transform);
-		Debug.Log ("Card_dealed");
+
+		foreach (GameObject game_obj in card) {
+			game_obj.transform.SetParent (game_view_transform);
+			Debug.Log ("Card_dealed");
+		}
 	}
 }
