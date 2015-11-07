@@ -3,10 +3,11 @@ using System.Collections;
 
 public class PlayerCommandBus : MonoBehaviour {
 
-	private GameLogic game_logic;
+	// private GameLogic game_logic;
 
 	// Use this for initialization
 	void Start () {
+		// game_logic = (GameLogic) GameObject.FindGameObjectWithTag(ObjectTag.GAME_LOGIC).GetComponent(typeof(GameLogic));
 	}
 	
 	// Update is called once per frame
@@ -16,6 +17,7 @@ public class PlayerCommandBus : MonoBehaviour {
 
 	public void dealCard() {
 		Debug.Log ("Deal Card Commanded");
-		GameLogic.Instance.processDealCard ();
+		// game_logic.processDealCard ();
+		GameLogic.Instance.processDealCard();
 	}
 }
