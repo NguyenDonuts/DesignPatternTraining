@@ -1,16 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameLogic : MonoBehaviour {
+public class GameLogic {
+	// class instance, must static for static getInstance
+	private static GameLogic instance;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	// avoid traditional new instance
+	private GameLogic (){}
+
+	public static GameLogic Instance{
+		get {
+			if(instance == null){
+				instance = new GameLogic();
+				Debug.Log("new gamelogic created");
+			} else {
+				Debug.Log("gamelogic has been existing");
+			}
+			return instance;
+		}
 	}
 
 	public void processDealCard() {
