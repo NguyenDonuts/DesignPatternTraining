@@ -1,16 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameLogic : MonoBehaviour {
+public class GameLogic {
 
-	// Use this for initialization
-	void Start () {
+	private static GameLogic instance;
 	
-	}
+	private GameLogic() {}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public static GameLogic Instance {
+		get {
+			if (instance == null) {
+				instance = new GameLogic();
+				Debug.Log ("New GameLogic created");
+			}else {
+				Debug.Log ("Use existing GameLogic");
+			}
+			return instance;
+		}
 	}
 
 	public void processDealCard() {
