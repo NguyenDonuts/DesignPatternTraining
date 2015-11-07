@@ -10,13 +10,20 @@ static class CardType {
 
 public class Card : MonoBehaviour, ICard {
 
-	private int card_number = 0;
-	private int card_type = 0;
+	protected int card_number = 0;
+	protected int card_type = 0;
 
 	public void initCard(int card_number, int card_type) {
 		this.card_number = card_number;
 		this.card_type = card_type;
-		Debug.Log (" Created a new card : Card_number = " + card_number + " and Card_type = " + card_type);
+        if (this.GetType() == typeof(Jocker))
+        {
+            Debug.Log(" Create a new Jocker card");
+        }
+        else
+        {
+            Debug.Log(" Created a new card : Card_number = " + card_number + " and Card_type = " + card_type);
+        }     
 	}
 
 	// Use this for initialization
