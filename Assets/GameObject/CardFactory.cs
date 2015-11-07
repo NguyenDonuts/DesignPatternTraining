@@ -18,7 +18,7 @@ public class CardFactory {
 	public GameObject getNewCard() {
 		System.Random rnd = new System.Random();
 		GameObject new_card = new GameObject ();
-		if (rnd.Next (0, 2) == 0) {
+		if (rnd.Next (0, 5) == 0) {
 			new_card.AddComponent<Joker> ().initCard (0, 0);
 		} else {
 			int card_number = rnd.Next (1, 15);
