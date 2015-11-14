@@ -16,12 +16,10 @@ public class Card : MonoBehaviour, ICard {
 	public void initCard(int card_number, int card_type) {
 		this.card_number = card_number;
 		this.card_type = card_type;
-		if (card_number != 6) {
+		if (this.GetType() == typeof(Joker))
+			Debug.Log (" Created a new Joker");
+		else
 			Debug.Log (" Created a new card : Card_number = " + card_number + " and Card_type = " + card_type);
-		} else {
-			Debug.Log (" Created a new card JOCKER");
-		}
-
 	}
 
 	// Use this for initialization
