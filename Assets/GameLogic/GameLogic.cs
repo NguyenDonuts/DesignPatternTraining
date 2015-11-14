@@ -20,7 +20,13 @@ public class GameLogic {
 		}
 	}
 
-	public void processDealCard() {
+	public void processCommand(ICommand command) {
+		if (command.GetType() == typeof(DealCommand)) {
+			processDealCard();
+		}
+	}
+
+	private void processDealCard() {
 		Debug.Log ("Deal card command sent to card dealer");
 		CardDealer.Instance.dealCard ();
 	}
