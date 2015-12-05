@@ -19,6 +19,12 @@ public class CardDealer {
 			return instance;
 		}
 	}
+	public void processCommand(GameCommand command) {
+		if (command.GetType() == typeof(GameCommand)) {
+			dealCard();
+		}
+	}
+	
 
 	public void dealCard() {
 		GameObject card_1 = CardFactory.Instance.getNewCard ();

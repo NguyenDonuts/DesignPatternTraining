@@ -28,6 +28,9 @@ public class GameLogic {
 
 	private void processDealCard() {
 		Debug.Log ("Deal card command sent to card dealer");
-		CardDealer.Instance.dealCard ();
+		GameLogicCommand command_bus = (GameLogicCommand)GameObject.FindGameObjectWithTag ("CardDealer").GetComponent (typeof(GameLogicCommand));
+		Debug.Log (command_bus);
+		command_bus.addCommand(new GameCommand());
+		//CardDealer.Instance.dealCard ();
 	}
 }

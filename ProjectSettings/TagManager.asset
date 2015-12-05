@@ -7,6 +7,7 @@ TagManager:
   - 100
   - 101
   - 1000
+  - CardDealer
   layers:
   - Default
   - TransparentFX
